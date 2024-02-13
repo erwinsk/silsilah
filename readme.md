@@ -76,7 +76,19 @@ This application can be installed on local server and online server with these s
     SYSTEM_ADMIN_EMAILS=admin@email.com;other_admin@email.com
     ```
 ### Install via Dockerfile
-1. 
+1. Clone the repo : `git clone https://github.com/erwinsk/silsilah.git`
+2. `cd silsilah`
+3. `composer install`
+4. `cp .env.example .env`
+5. Create **database on MySQL**
+6. **Set database credentials** on `.env` file
+7. docker build -t silsilah:vx .
+8. docker run --name silsilah-alpine -d -p 22:22 -p 80:80 silsilah:vx
+9. Register as new user to start using the application.
+10. Add the registered email address to the `.env` file:
+    ```
+    SYSTEM_ADMIN_EMAILS=admin@email.com;other_admin@email.com
+    ```
 
 ## Testing
 This application built with testing (TDD) using in-memory sqlite database.
