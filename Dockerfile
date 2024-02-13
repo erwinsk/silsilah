@@ -25,18 +25,17 @@ RUN cd /home/application && php artisan migrate
 RUN cd /home/application && php artisan storage:link
 RUN chmod -R 777 /home/application/storage 
 RUN chown -R www-data:www-data /home/application 
+
+# Configure ssh and add user to sudo
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
-RUN adduser -h /home/application -s /bin/sh -D erwin
-RUN echo -n 'erwin:alarmroot' | chpasswd
+RUN adduser -h /home/application -s /bin/sh -D myuser
+RUN echo -n 'myuser:inipasswordnya' | chpasswd
 RUN echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 RUN adduser erwin wheel
 RUN ssh-keygen -A
-# COPY run_ssh.sh run_ssh.sh
-# COPY run_apache.sh run_apache.sh
+
+# Start ssh and apache server
 CMD rm -rf /run/apache2/* 
-# || true # && /usr/sbin/sshd -D -e "$@" # && /usr/sbin/httpd -DFOREGROUND
 EXPOSE 22
 COPY entrypoint.sh /
 ENTRYPOINT [ "/entrypoint.sh" ]
-# Launch the ssh in foreground
-# CMD /usr/sbin/sshd -D -e "$@"
