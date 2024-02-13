@@ -75,6 +75,8 @@ This application can be installed on local server and online server with these s
     ```
     SYSTEM_ADMIN_EMAILS=admin@email.com;other_admin@email.com
     ```
+### Install via Dockerfile
+1. 
 
 ## Testing
 This application built with testing (TDD) using in-memory sqlite database.
