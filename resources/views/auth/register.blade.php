@@ -7,7 +7,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                <p>Silahkan Hubungi Admin Keluarga masing - masing!</p>
+                <p>Daftar Admin</p>
+                <ul>
+                  <li>Erwin</li>
+                  <li>Rahma</li>
+                  <li>Farid</li>
+                  <li>Rifai Fajrin</li>
+                </ul>
+                   <!-- <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nickname') ? ' has-error' : '' }}">
@@ -86,7 +94,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </form>

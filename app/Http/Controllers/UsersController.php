@@ -14,6 +14,10 @@ use Storage;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Search user by keyword.
      *

@@ -37,6 +37,29 @@
                 </td>
             </tr>
             <tr>
+            <th>{{ trans('user.spouse') }}</th>
+            @if ($user->husbands->isEmpty() == false)
+                        <ul class="list-unstyled">
+                            @foreach($user->husbands as $husband)
+                            <li>{{ $husband->profileLink() }}</li>
+                            @endforeach
+                        </ul>
+                    <td class="text-center lead" colspan="4">
+                        <h4><strong>{{ $husband->profileLink('chart') }} ({{ $husband->gender }})</strong></h4>
+                    </td>
+                @endif
+                @if ($user->wifes->isEmpty() == false)
+                        <ul class="list-unstyled">
+                            @foreach($user->wifes as $wife)
+                            <li>{{ $wife->profileLink() }}</li>
+                            @endforeach
+                        </ul>
+                    <td class="text-center lead" colspan="4">
+                        <h4><strong>{{ $wife->profileLink('chart') }} ({{ $wife->gender }})</strong></h4>
+                    </td>
+                @endif
+            </tr>
+            <tr>
                 <th>{{ trans('user.childs') }} & {{ trans('user.grand_childs') }}</th>
                 <td colspan="4">
                     <?php $no = 0; ?>

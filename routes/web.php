@@ -23,7 +23,10 @@ use App\Http\Controllers\UsersController;
 */
 
 
-Route::get('/', [UsersController::class, 'search']);
+# Route::get('/', [UsersController::class, 'search']);
+Route::get('/', function () {
+    return redirect('/users/8f8ab471-9809-42c0-a059-0eb7eef99542/tree');
+});
 
 Auth::routes();
 
