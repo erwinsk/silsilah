@@ -31,7 +31,7 @@ RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 RUN adduser -h /home/application -s /bin/sh -D myuser
 RUN echo -n 'myuser:inipasswordnya' | chpasswd
 RUN echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
-RUN adduser erwin wheel
+RUN adduser myuser wheel
 RUN ssh-keygen -A
 
 # Start ssh and apache server
