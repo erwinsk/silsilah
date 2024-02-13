@@ -65,7 +65,7 @@ Aplikasi ini dapat dipasang pada server lokal dan onlne dengan spesifikasi berik
 
 ### Langkah Instalasi
 
-1. Clone Repo, pada terminal : `git clone https://github.com/nafiesl/silsilah.git`
+1. Clone Repo, pada terminal : `git clone https://github.com/erwinsk/silsilah.git`
 2. `cd silsilah`
 3. `composer install`
 4. `cp .env.example .env`
@@ -77,6 +77,21 @@ Aplikasi ini dapat dipasang pada server lokal dan onlne dengan spesifikasi berik
 10. `php artisan serve`
 11. Register user baru untuk mulai mengisi silsilah.
 12. Tambahkan alamat email yang digunakan mendaftar pada file `.env`:
+    ```
+    SYSTEM_ADMIN_EMAILS=admin@email.com;other_admin@email.com
+    ```
+
+### Install via Dockerfile
+1. Clone the repo : `git clone https://github.com/erwinsk/silsilah.git`
+2. `cd silsilah`
+3. `composer install`
+4. `cp .env.example .env`
+5. Buat database **database on MySQL** untuk aplikasi
+6. **Sesuaikan identitas database dengan** pada file `.env`
+7. `docker build -t silsilah:vx.y .`
+8. `docker run --name silsilah-alpine -d -p 22:22 -p 80:80 silsilah:vx.y`
+9. Register user baru untuk mulai mengisi silsilah.
+10. Add the registered email address to the `.env` file:
     ```
     SYSTEM_ADMIN_EMAILS=admin@email.com;other_admin@email.com
     ```

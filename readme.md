@@ -82,8 +82,8 @@ This application can be installed on local server and online server with these s
 4. `cp .env.example .env`
 5. Create **database on MySQL**
 6. **Set database credentials** on `.env` file
-7. docker build -t silsilah:vx .
-8. docker run --name silsilah-alpine -d -p 22:22 -p 80:80 silsilah:vx
+7. `docker build -t silsilah:vx.y .`
+8. `docker run --name silsilah-alpine -d -p 22:22 -p 80:80 silsilah:vx.y`
 9. Register as new user to start using the application.
 10. Add the registered email address to the `.env` file:
     ```

@@ -29,8 +29,12 @@ RUN chown -R www-data:www-data /home/application
 # Configure ssh and add user to sudo
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 RUN adduser -h /home/application -s /bin/sh -D myuser
+
+# Change this to desired usernama:password
 RUN echo -n 'myuser:inipasswordnya' | chpasswd
 RUN echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
+
+# Change myuser to username above
 RUN adduser myuser wheel
 RUN ssh-keygen -A
 
