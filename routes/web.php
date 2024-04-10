@@ -24,6 +24,7 @@ use App\Http\Controllers\UsersController;
 
 
 # Route::get('/', [UsersController::class, 'search']);
+# Change users id to the oldest family
 Route::get('/', function () {
     return redirect('/users/8f8ab471-9809-42c0-a059-0eb7eef99542/tree');
 });
