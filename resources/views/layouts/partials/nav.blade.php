@@ -21,6 +21,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ route('users.search') }}">{{ __('app.search_your_family') }}</a></li>
                 <li><a href="{{ route('birthdays.index') }}">{{ __('birthday.birthday') }}</a></li>
+                <li><a href="https://google.com">Galeri Foto</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
