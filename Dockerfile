@@ -5,7 +5,7 @@ FROM php:8.2-alpine
 COPY . /home/application/ 
 
 # Custom Document Root
-ENV APACHE_DOCUMENT_ROOT /home/application/public
+ENV APACHE_DOCUMENT_ROOT=/home/application/public
 
 # Concatenated RUN commands
 RUN apk add --update --no-cache openssh nano bash sudo
@@ -16,7 +16,7 @@ RUN apk add --update apache2 php-apache2 mariadb-client php-fileinfo php-mbstrin
     && mkdir -p /run/apache2 \
     && sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf \
     && sed -i '/LoadModule session_module/s/^#//g' /etc/apache2/httpd.conf \
-    && sed -i '/extension=fileinfo/s/^;//g' /etc/php82/php.ini \
+    && sed -i '/extension=fileinfo/s/^;//g' /etc/php83/php.ini \
     && sed -ri -e 's!/var/www/localhost/htdocs!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/httpd.conf \
     && sed -i 's/AllowOverride\ None/AllowOverride\ All/g' /etc/apache2/httpd.conf \
     && rm  -rf /tmp/* /var/cache/apk/*
