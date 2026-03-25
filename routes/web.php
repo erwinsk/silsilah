@@ -22,10 +22,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [UsersController::class, 'search']);
+    Route::get('/', 
+        function () {
+            return redirect('/users/8f8ab471-9809-42c0-a059-0eb7eef99542/tree');
+        }
+    );
 
     Route::controller(HomeController::class)->group(function () {
         Route::get('home', 'index')->name('home');
